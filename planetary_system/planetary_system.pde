@@ -44,7 +44,7 @@ void draw() {
   
   pushMatrix();
   rotateZ(2*PI/8);
-  planet1.draw(new Astro[]{}, "Planet 1", color(0, 255, 0, 255), 20);
+  planet1.draw(new Astro[]{}, new float[][]{{},{},{2*PI/8}}, "Planet 1", color(0, 255, 0, 255), 20);
   popMatrix();
   
   pushMatrix();
