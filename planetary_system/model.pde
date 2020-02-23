@@ -11,6 +11,8 @@ class Star {
     
     this.shape = createShape(SPHERE, radius);
     this.shape.setTexture(texture);
+    this.shape.setStroke(false);
+    this.shape.setFill(false);
   }
   
   Star(float radius) {
@@ -60,6 +62,8 @@ class Astro {
     this.distance = distance;
     this.shape = createShape(SPHERE, radius);
     this.shape.setTexture(texture);
+    this.shape.setStroke(false);
+    this.shape.setFill(false);
     
     this.rotation = 0;
     this.translation = 0;
@@ -137,7 +141,7 @@ class StatSatellite {
     this.shape.scale(0.01);
   }
   
-  void draw(Astro[] parent, String txt) {
+  void draw(Astro[] parent, String txt, color c, float hint_space) {
     translate(this.distance, 0);
     rotateY(PI/2);
     shape(this.shape);
@@ -150,9 +154,9 @@ class StatSatellite {
       }
       
       textMode(SHAPE);
-      fill(0);
+      fill(c);
       textSize(20);
-      text(txt, 0, -10, 0);
+      text(txt, 0, -hint_space, 0);
       fill(255);
     popMatrix();
   }
