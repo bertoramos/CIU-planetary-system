@@ -15,8 +15,7 @@ Astro planet3;
 Astro planet4;
   StatSatellite stat;
 
-Astro planet5;
-
+Astro planet5; 
 
 void setup() {
   //size(1800, 900, P3D);
@@ -105,5 +104,4 @@ void draw() {
     moon4_1.move(+2*PI/100, -2*PI/90);
     moon4_2.move(+2*PI/800, +2*PI/100);
   planet5.move  (-2*PI/500, +2*PI/850);
-  
 }
