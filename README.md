@@ -3,7 +3,7 @@
 
 ###### Alberto Ramos Sánchez
 
-<center><img src="export.gif" width="400" height="400" alt="Sistema solar"/></center>
+<center><img src="export.gif" width="800" height="470" alt="Sistema solar"/></center>
 
 En esta práctica hemos realizado el diseño de un sistema solar con una estrella, 5 planetas y sus respectivos satélites. Cada objeto del sistema tiene un nombre, que es indicado mediante una etiqueta que acompaña a cada uno de ellos:
 
