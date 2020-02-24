@@ -19,7 +19,8 @@ Astro planet5;
 
 
 void setup() {
-  size(1800, 900, P3D);
+  //size(1800, 900, P3D);
+  fullScreen(P3D);
   
   bg = loadImage(".\\img\\background\\bg.jpg");
   bg.resize(width, height);
@@ -37,48 +38,57 @@ void setup() {
   planet5 = new Astro(1200, 10, loadImage(".\\img\\texture\\bolvangar.png")); // Bolvangar - ice
 }
 
-color col = color(255, 255, 255, 255);
+boolean light_on = false;
+void keyPressed() {
+  if(key == ' ') light_on = !light_on;
+}
+
+color BLACK = color(255, 255, 255, 255);
 
 void draw() {
   background(bg);
+  textSize(20);
+  text("PRESS ESC TO EXIT", 0, 20, 0);
   
-  ambientLight(100, 100, 100);
   rotateX(-2*PI/16);
   translate(width/2, height/2);
-  pointLight(255, 255, 255, 0, 0, 0);
   
   pushMatrix();
-  star.draw("Sraf", col, 20);
+  star.draw("Sraf", BLACK, 20, 20);
   popMatrix();
+  
+  if(light_on) pointLight(255, 210, 158, 0, 0, 0);
   
   pushMatrix();
   rotateZ(2*PI/8);
-  planet1.draw(new Astro[]{}, new float[][]{{},{},{2*PI/8}}, "Gyptian", col, 20);
+  planet1.draw(new Astro[]{}, new float[][]{{},{},{2*PI/8}}, "Gyptian", BLACK, 20, 20);
   popMatrix();
   
   pushMatrix();
-  planet2.draw(new Astro[]{}, "Lyra", col, 50);
-  moon2_1.draw(new Astro[]{planet2}, "Pantalaimon", col, 20);
-  popMatrix();
-  
-  pushMatrix();
-  planet3.draw(new Astro[]{}, "Cittàgazze", col, 50);
-  stat.draw(new Astro[]{planet3}, "S-638", col, 20);
-  popMatrix();
-  
-  pushMatrix();
-  planet4.draw(new Astro[]{}, "Svalvard", col, 40);
+  planet2.draw(new Astro[]{}, "Lyra", BLACK, 20, 50);
     pushMatrix();
-    moon4_1.draw(new Astro[]{planet4}, "Iorek", col, 20);
+    moon2_1.draw(new Astro[]{planet2}, "Pantalaimon", BLACK, 20, 20);
+    popMatrix();
+  popMatrix();
+  
+  pushMatrix();
+  planet3.draw(new Astro[]{}, "Cittàgazze", BLACK, 20, 50);
+  stat.draw(new Astro[]{planet3}, "S-638", BLACK, 20, 20);
+  popMatrix();
+  
+  pushMatrix();
+  planet4.draw(new Astro[]{}, "Svalvard", BLACK, 30, 40);
+    pushMatrix();
+    moon4_1.draw(new Astro[]{planet4}, "Amber", BLACK, 30, 20);
     popMatrix();
     
     pushMatrix();
-    moon4_2.draw(new Astro[]{planet4}, "Amber", col, 20);
+    moon4_2.draw(new Astro[]{planet4}, "Iorek", BLACK, 30, 20);
     popMatrix();
   popMatrix();
   
   pushMatrix();
-  planet5.draw(new Astro[]{}, "Bolvangar", col, 20);
+  planet5.draw(new Astro[]{}, "Bolvangar", BLACK, 30, 20);
   popMatrix();
   
   
@@ -94,24 +104,6 @@ void draw() {
   planet4.move  (+2*PI/800, +2*PI/800);
     moon4_1.move(+2*PI/100, -2*PI/90);
     moon4_2.move(+2*PI/800, +2*PI/100);
-  planet5.move  (-2*PI/500, -2*PI/850);
+  planet5.move  (-2*PI/500, +2*PI/850);
   
-  
-  /*
-  float an = 2*PI/2000;
-  
-  star.move(an);
-  
-  // rotation, translation
-  planet1.move  (an, an);
-  planet2.move  (an, an);
-    moon2_1.move(an, an);
-  
-  planet3.move  (an, an);
-  
-  planet4.move  (an, an);
-    moon4_1.move(an, an);
-    moon4_2.move(an, an);
-  planet5.move  (an, an);
-  */
 }

@@ -26,9 +26,9 @@ class Star {
     this.angle += speed;
   }
   
-  void draw(String txt, color col, float hint_space) {
+  void draw(String txt, color col, float txt_size, float hint_space) {
     fill(col);
-    textSize(20);
+    textSize(txt_size);
     textMode(SHAPE);
     text(txt, 0, -this.radius - hint_space, 0);
     fill(255);
@@ -74,7 +74,7 @@ class Astro {
     this.translation += translation;
   }
   
-  void draw(Astro[] parent, String txt, color col, float hint_space) {
+  void draw(Astro[] parent, String txt, color col, float txt_size, float hint_space) {
     rotateY(this.translation);
     translate(this.distance, 0);
     rotateY(this.rotation);
@@ -97,7 +97,7 @@ class Astro {
     popMatrix();
   }
   
-  void draw(Astro[] parent, float[][] undo_rot, String txt, color col, float hint_space) {
+  void draw(Astro[] parent, float[][] undo_rotation, String txt, color col, float txt_size, float hint_space) {
     rotateY(this.translation);
     translate(this.distance, 0);
     rotateY(this.rotation);
@@ -111,15 +111,9 @@ class Astro {
       }
       rotateY(-this.translation);
       rotateY(-this.rotation);
-      for(float a: undo_rot[0]) {
-        rotateX(-a);
-      }
-      for(float a: undo_rot[1]) {
-        rotateY(-a);
-      }
-      for(float a: undo_rot[2]) {
-        rotateZ(-a);
-      }
+      for(float e: undo_rotation[0]) rotateX(-e);
+      for(float e: undo_rotation[1]) rotateY(-e);
+      for(float e: undo_rotation[2]) rotateZ(-e);
       
       textMode(SHAPE);
       fill(col);
@@ -128,6 +122,7 @@ class Astro {
       fill(255);
     popMatrix();
   }
+
 }
 
 class StatSatellite {
@@ -141,7 +136,7 @@ class StatSatellite {
     this.shape.scale(0.01);
   }
   
-  void draw(Astro[] parent, String txt, color c, float hint_space) {
+  void draw(Astro[] parent, String txt, color c, float txt_size, float hint_space) {
     translate(this.distance, 0);
     rotateY(PI/2);
     shape(this.shape);
@@ -155,7 +150,7 @@ class StatSatellite {
       
       textMode(SHAPE);
       fill(c);
-      textSize(20);
+      textSize(txt_size);
       text(txt, 0, -hint_space, 0);
       fill(255);
     popMatrix();
