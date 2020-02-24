@@ -12,7 +12,7 @@ En esta práctica hemos realizado el diseño de un sistema solar con una estrell
   - __*Gyptian*__: no posee satélites.
   - __*Lyra*__: con un satélite natural llamado __*Pantalaimon*__.
   - __*Cittàgazze*__: con un satélite artificial y geoestacionario llamado __*S-638*__
-  - __*Svalbard*__: con 2 satélites naturales llamados Amber y Iorek
+  - __*Svalbard*__: con 2 satélites naturales llamados __*Amber*__ y __*Iorek*__
   - __*Bolvangar*__: sin lunas.
 
 La estrella central emite luz propia, que ilumina a los planetas y satélites que orbitan a su alrededor. __Para activar y desactivar esa luz, podemos pulsar la *barra espaciadora*__.
